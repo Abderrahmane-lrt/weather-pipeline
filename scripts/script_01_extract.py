@@ -1,23 +1,38 @@
 import json
 import os
 from datetime import datetime
+from pathlib import Path
+
 import pandas as pd
 import requests
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 API_URL = "https://api.open-meteo.com/v1/forecast"
-CITIES_CSV = "data/ma.csv"
-BRONZE_DIR = "data/bronze/raw_json"
+CITIES_CSV = PROJECT_ROOT / "data" / "ma.csv"
+BRONZE_DIR = PROJECT_ROOT / "data" / "bronze" / "raw_json"
 
 
-def get_meteo_data(url, params, timeout=10):
+def get_meteo_data(url, params, timeout=30):
     try:
         res = requests.get(url=url, params=params, timeout=timeout)
         res.raise_for_status()
-        if res.status_code == 200:
-            return res.json()
-    except requests.exceptions.RequestException as e:
-        print(f"Error Fetching data from Open-Meteo API : {e}")
+        return res.json()
+
+    except requests.exceptions.Timeout:
+        print("Error: Request timed out")
         return None
+
+    except requests.exceptions.HTTPError as e:
+        status_code = e.response.status_code
+
+        print(f"HTTP Error {status_code} : {e}")
+        return None
+
+    except requests.exceptions.RequestException as e:
+        status_code = e.response.status_code 
+        print(f"Error Fetching data from Open-Meteo API : {e} {status_code}")
+        return None
+
 
 
 def run_extraction():
@@ -55,9 +70,11 @@ def run_extraction():
         }
 
         res_json = get_meteo_data(API_URL, params)
+        
+        if res_json is None:
+            continue
 
         if res_json:
-            # Inject city name and coords into JSON object to keep track of location
             res_json["city_metadata"] = {
                 "city": city_name,
                 "lat": lat,
@@ -66,18 +83,22 @@ def run_extraction():
             raw_data.append(res_json)
 
     # Save aggregated raw responses to Bronze layer
-    if raw_data:
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        output_filepath = os.path.join(
-            BRONZE_DIR, f"raw_weather_{timestamp}.json"
-        )
+    if not raw_data:
+        raise RuntimeError("Extraction failed: no weather data was retrieved")
 
-        with open(output_filepath, "w", encoding="utf-8") as f:
-            json.dump(raw_data, f, ensure_ascii=False, indent=2)
+    output_filepath = BRONZE_DIR / "latest_raw_weather.json"
 
-        print(
-            f"\nExtraction complete! {len(raw_data)} cities saved to {output_filepath}"
-        )
+    with open(output_filepath, "w", encoding="utf-8") as f:
+        json.dump(raw_data, f, ensure_ascii=False, indent=2)
+
+    print(
+        f"\nExtraction complete! {len(raw_data)} cities saved to {output_filepath}"
+    )
 
 
-run_extraction()
+if __name__ == "__main__":
+    run_extraction()
+
+
+
+

@@ -1,4 +1,4 @@
-## Weather Pipeline
+## Weather Pipeline Morocco 
 
 
 ## 1. Présentation du besoin traité
@@ -7,7 +7,7 @@ Une entreprise de livraison et de logistique opère dans plusieurs villes maroca
 L'entreprise souhaite donc mettre en place une solution permettant de récupérer les prévisions météorologiques des prochains jours, d'identifier les périodes à risque et d'aider les responsables à anticiper les éventuelles perturbations.
 
 
-## 2. Étapes suivies pendant les 3 jours de réalisation
+## 2. Étapes suivies pendant les 5 jours de réalisation
 
 - **Jour 1 : Préparation de l'environnement et extraction des données brutes**
   - création du projet et organisation des dossiers ;
@@ -20,5 +20,12 @@ L'entreprise souhaite donc mettre en place une solution permettant de récupére
 
 ### Résultat du Jour 1
 La première étape du pipeline a été validée : les données météo brutes ont bien été collectées et stockées dans la couche Bronze pour plusieurs villes du Maroc.
+
+
+- **Jour 2 : Calcul de Risque weather & Configuration du base de donnes**
+  - Création d'un score de risque météorologique de 0 à 100 permettant d'identifier les conditions  potentiellement defavorables. 
+  - suppression des lignes duplicated et l'ajout de deux collones `(risk_score, risk_level)`
+  - configuration du bases de donnes (creation de base de donne)
+
 
     

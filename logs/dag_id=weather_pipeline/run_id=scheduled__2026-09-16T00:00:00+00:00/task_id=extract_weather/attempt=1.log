@@ -1,0 +1,129 @@
+[2026-09-17T21:13:56.979+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-09-17T21:13:57.052+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_pipeline.extract_weather scheduled__2026-09-16T00:00:00+00:00 [queued]>
+[2026-09-17T21:13:57.068+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_pipeline.extract_weather scheduled__2026-09-16T00:00:00+00:00 [queued]>
+[2026-09-17T21:13:57.068+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-09-17T21:13:57.096+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): extract_weather> on 2026-09-16 00:00:00+00:00
+[2026-09-17T21:13:57.105+0000] {standard_task_runner.py:63} INFO - Started process 82 to run task
+[2026-09-17T21:13:57.110+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weather_pipeline', 'extract_weather', 'scheduled__2026-09-16T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/weather_pipeline.py', '--cfg-path', '/tmp/tmp_p7fn6fb']
+[2026-09-17T21:13:57.113+0000] {standard_task_runner.py:91} INFO - Job 5: Subtask extract_weather
+[2026-09-17T21:13:57.231+0000] {task_command.py:426} INFO - Running <TaskInstance: weather_pipeline.extract_weather scheduled__2026-09-16T00:00:00+00:00 [running]> on host 011611dd4ebe
+[2026-09-17T21:13:57.403+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='weather_pipeline' AIRFLOW_CTX_TASK_ID='extract_weather' AIRFLOW_CTX_EXECUTION_DATE='2026-09-16T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-09-16T00:00:00+00:00'
+[2026-09-17T21:13:57.404+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-09-17T21:13:57.455+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-09-17T21:13:57.456+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/scripts/script_01_extract.py']
+[2026-09-17T21:13:57.469+0000] {subprocess.py:86} INFO - Output:
+[2026-09-17T21:14:11.856+0000] {subprocess.py:93} INFO - Fetching weather data for: Casablanca...
+[2026-09-17T21:14:11.857+0000] {subprocess.py:93} INFO - Fetching weather data for: Tangier...
+[2026-09-17T21:14:11.857+0000] {subprocess.py:93} INFO - Fetching weather data for: Fès...
+[2026-09-17T21:14:11.858+0000] {subprocess.py:93} INFO - Fetching weather data for: Marrakech...
+[2026-09-17T21:14:11.858+0000] {subprocess.py:93} INFO - Fetching weather data for: Sale...
+[2026-09-17T21:14:11.858+0000] {subprocess.py:93} INFO - Fetching weather data for: Meknès...
+[2026-09-17T21:14:11.859+0000] {subprocess.py:93} INFO - Fetching weather data for: Rabat...
+[2026-09-17T21:14:11.859+0000] {subprocess.py:93} INFO - Fetching weather data for: Agadir...
+[2026-09-17T21:14:11.859+0000] {subprocess.py:93} INFO - Fetching weather data for: Kenitra...
+[2026-09-17T21:14:11.860+0000] {subprocess.py:93} INFO - Fetching weather data for: Oujda-Angad...
+[2026-09-17T21:14:11.860+0000] {subprocess.py:93} INFO - Fetching weather data for: Tétouan...
+[2026-09-17T21:14:11.860+0000] {subprocess.py:93} INFO - Fetching weather data for: Safi...
+[2026-09-17T21:14:11.861+0000] {subprocess.py:93} INFO - Fetching weather data for: Taourirt...
+[2026-09-17T21:14:11.861+0000] {subprocess.py:93} INFO - Fetching weather data for: Temara...
+[2026-09-17T21:14:11.862+0000] {subprocess.py:93} INFO - Fetching weather data for: Laâyoune...
+[2026-09-17T21:14:11.862+0000] {subprocess.py:93} INFO - Fetching weather data for: El Jadid...
+[2026-09-17T21:14:11.862+0000] {subprocess.py:93} INFO - Fetching weather data for: Ait Melloul...
+[2026-09-17T21:14:11.863+0000] {subprocess.py:93} INFO - Fetching weather data for: Béni Mellal...
+[2026-09-17T21:14:11.863+0000] {subprocess.py:93} INFO - Fetching weather data for: Bouskoura...
+[2026-09-17T21:14:11.863+0000] {subprocess.py:93} INFO - Fetching weather data for: Tiznit...
+[2026-09-17T21:14:11.864+0000] {subprocess.py:93} INFO - Fetching weather data for: Mohammedia...
+[2026-09-17T21:14:11.864+0000] {subprocess.py:93} INFO - Fetching weather data for: Kouribga...
+[2026-09-17T21:14:11.864+0000] {subprocess.py:93} INFO - Fetching weather data for: Settat...
+[2026-09-17T21:14:11.865+0000] {subprocess.py:93} INFO - Fetching weather data for: Barrechid...
+[2026-09-17T21:14:11.865+0000] {subprocess.py:93} INFO - Fetching weather data for: Ad Dakhla...
+[2026-09-17T21:14:11.865+0000] {subprocess.py:93} INFO - Fetching weather data for: Nador...
+[2026-09-17T21:14:11.866+0000] {subprocess.py:93} INFO - Fetching weather data for: Taza...
+[2026-09-17T21:14:11.866+0000] {subprocess.py:93} INFO - Fetching weather data for: Inezgane...
+[2026-09-17T21:14:11.866+0000] {subprocess.py:93} INFO - Fetching weather data for: Larache...
+[2026-09-17T21:14:11.867+0000] {subprocess.py:93} INFO - Fetching weather data for: Al Khmissat...
+[2026-09-17T21:14:11.867+0000] {subprocess.py:93} INFO - Fetching weather data for: Guelmim...
+[2026-09-17T21:14:11.867+0000] {subprocess.py:93} INFO - Fetching weather data for: Ksar El Kebir...
+[2026-09-17T21:14:11.868+0000] {subprocess.py:93} INFO - Fetching weather data for: Khénifra...
+[2026-09-17T21:14:11.868+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-09-17T21:14:11.868+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+[2026-09-17T21:14:11.869+0000] {subprocess.py:93} INFO -     sock = connection.create_connection(
+[2026-09-17T21:14:11.869+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+[2026-09-17T21:14:11.870+0000] {subprocess.py:93} INFO -     raise err
+[2026-09-17T21:14:11.870+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+[2026-09-17T21:14:11.870+0000] {subprocess.py:93} INFO -     sock.connect(sa)
+[2026-09-17T21:14:11.871+0000] {subprocess.py:93} INFO - OSError: [Errno 101] Network is unreachable
+[2026-09-17T21:14:11.871+0000] {subprocess.py:93} INFO - 
+[2026-09-17T21:14:11.872+0000] {subprocess.py:93} INFO - The above exception was the direct cause of the following exception:
+[2026-09-17T21:14:11.872+0000] {subprocess.py:93} INFO - 
+[2026-09-17T21:14:11.873+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-09-17T21:14:11.873+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+[2026-09-17T21:14:11.874+0000] {subprocess.py:93} INFO -     response = self._make_request(
+[2026-09-17T21:14:11.874+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+[2026-09-17T21:14:11.875+0000] {subprocess.py:93} INFO -     raise new_e
+[2026-09-17T21:14:11.875+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+[2026-09-17T21:14:11.875+0000] {subprocess.py:93} INFO -     self._validate_conn(conn)
+[2026-09-17T21:14:11.876+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1099, in _validate_conn
+[2026-09-17T21:14:11.876+0000] {subprocess.py:93} INFO -     conn.connect()
+[2026-09-17T21:14:11.876+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/urllib3/connection.py", line 616, in connect
+[2026-09-17T21:14:11.877+0000] {subprocess.py:93} INFO -     self.sock = sock = self._new_conn()
+[2026-09-17T21:14:11.877+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+[2026-09-17T21:14:11.878+0000] {subprocess.py:93} INFO -     raise NewConnectionError(
+[2026-09-17T21:14:11.878+0000] {subprocess.py:93} INFO - urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fa9f9667bb0>: Failed to establish a new connection: [Errno 101] Network is unreachable
+[2026-09-17T21:14:11.878+0000] {subprocess.py:93} INFO - 
+[2026-09-17T21:14:11.879+0000] {subprocess.py:93} INFO - The above exception was the direct cause of the following exception:
+[2026-09-17T21:14:11.879+0000] {subprocess.py:93} INFO - 
+[2026-09-17T21:14:11.879+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-09-17T21:14:11.880+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+[2026-09-17T21:14:11.880+0000] {subprocess.py:93} INFO -     resp = conn.urlopen(
+[2026-09-17T21:14:11.881+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+[2026-09-17T21:14:11.881+0000] {subprocess.py:93} INFO -     retries = retries.increment(
+[2026-09-17T21:14:11.881+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+[2026-09-17T21:14:11.882+0000] {subprocess.py:93} INFO -     raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+[2026-09-17T21:14:11.882+0000] {subprocess.py:93} INFO - urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=32.93&longitude=-5.66&daily=weather_code&daily=temperature_2m_max&daily=temperature_2m_min&daily=wind_speed_10m_max&daily=wind_gusts_10m_max&daily=precipitation_sum&daily=precipitation_probability_max&timezone=auto (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa9f9667bb0>: Failed to establish a new connection: [Errno 101] Network is unreachable'))
+[2026-09-17T21:14:11.883+0000] {subprocess.py:93} INFO - 
+[2026-09-17T21:14:11.883+0000] {subprocess.py:93} INFO - During handling of the above exception, another exception occurred:
+[2026-09-17T21:14:11.883+0000] {subprocess.py:93} INFO - 
+[2026-09-17T21:14:11.884+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-09-17T21:14:11.884+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/script_01_extract.py", line 14, in get_meteo_data
+[2026-09-17T21:14:11.885+0000] {subprocess.py:93} INFO -     res = requests.get(url=url, params=params, timeout=timeout)
+[2026-09-17T21:14:11.885+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+[2026-09-17T21:14:11.885+0000] {subprocess.py:93} INFO -     return request("get", url, params=params, **kwargs)
+[2026-09-17T21:14:11.886+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+[2026-09-17T21:14:11.886+0000] {subprocess.py:93} INFO -     return session.request(method=method, url=url, **kwargs)
+[2026-09-17T21:14:11.886+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+[2026-09-17T21:14:11.887+0000] {subprocess.py:93} INFO -     resp = self.send(prep, **send_kwargs)
+[2026-09-17T21:14:11.887+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+[2026-09-17T21:14:11.888+0000] {subprocess.py:93} INFO -     r = adapter.send(request, **kwargs)
+[2026-09-17T21:14:11.888+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+[2026-09-17T21:14:11.889+0000] {subprocess.py:93} INFO -     raise ConnectionError(e, request=request)
+[2026-09-17T21:14:11.889+0000] {subprocess.py:93} INFO - requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=32.93&longitude=-5.66&daily=weather_code&daily=temperature_2m_max&daily=temperature_2m_min&daily=wind_speed_10m_max&daily=wind_gusts_10m_max&daily=precipitation_sum&daily=precipitation_probability_max&timezone=auto (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa9f9667bb0>: Failed to establish a new connection: [Errno 101] Network is unreachable'))
+[2026-09-17T21:14:11.890+0000] {subprocess.py:93} INFO - 
+[2026-09-17T21:14:11.890+0000] {subprocess.py:93} INFO - During handling of the above exception, another exception occurred:
+[2026-09-17T21:14:11.890+0000] {subprocess.py:93} INFO - 
+[2026-09-17T21:14:11.890+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-09-17T21:14:11.891+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/script_01_extract.py", line 97, in <module>
+[2026-09-17T21:14:11.891+0000] {subprocess.py:93} INFO -     run_extraction()
+[2026-09-17T21:14:11.891+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/script_01_extract.py", line 68, in run_extraction
+[2026-09-17T21:14:11.892+0000] {subprocess.py:93} INFO -     res_json = get_meteo_data(API_URL, params)
+[2026-09-17T21:14:11.892+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/script_01_extract.py", line 29, in get_meteo_data
+[2026-09-17T21:14:11.892+0000] {subprocess.py:93} INFO -     print(f"Error Fetching data from Open-Meteo API : {e} {e.response.status_code}")
+[2026-09-17T21:14:11.893+0000] {subprocess.py:93} INFO - AttributeError: 'NoneType' object has no attribute 'status_code'
+[2026-09-17T21:14:11.992+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-09-17T21:14:11.993+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-09-17T21:14:12.019+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-09-17T21:14:12.024+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=weather_pipeline, task_id=extract_weather, run_id=scheduled__2026-09-16T00:00:00+00:00, execution_date=20260916T000000, start_date=20260917T211357, end_date=20260917T211412
+[2026-09-17T21:14:12.046+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 5 for task extract_weather (Bash command failed. The command returned a non-zero exit code 1.; 82)
+[2026-09-17T21:14:12.057+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-09-17T21:14:12.112+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-09-17T21:14:12.122+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
